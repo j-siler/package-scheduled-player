@@ -1070,7 +1070,7 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
 	    end
 	    
 	    local time = string.format(fmt, hour, minute, second)
-	    )
+	   
 
 	    local w = font:width(time, size)
 
