@@ -352,8 +352,8 @@
     Use AM/PM time format?
     <input
       type='checkbox'
-      v-model="background_a">
-    @change="onSetConfigValue('ampm', $event.target.checked)"
+      checked
+      @change="onSetConfigValue('ampm', $event.target.checked)"
     />
     </input>
     </div>

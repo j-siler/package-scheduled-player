@@ -34,7 +34,7 @@
         "name": "ampm",
         "type": "boolean",
         "hint": "AM/PM for use in appropriate locales",
-	"default": false
+	"default": true
     }, {
         "title": "Rotation",
         "ui_width": 4,
