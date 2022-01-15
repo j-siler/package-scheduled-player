@@ -1,6 +1,6 @@
 {
     "name": "Schedule/Layout",
-    "custom_ui": "config.html",
+    "custom_ui": "config.html" //,
     // "control_ui": "control.html",
     "permissions": {
         "gpio": "Can access GPIO"
