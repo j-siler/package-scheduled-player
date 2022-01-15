@@ -29,6 +29,13 @@
         "hint": "Use for testing. Leave empty to use current time",
         "default": ""
     }, {
+        "title": "Simulated Time2",
+        "ui_width": 4,
+        "name": "time2",
+        "type": "string",
+        "hint": "Use for testing. Leave empty to use current time",
+        "default": ""
+    }, {
         "title": "Rotation",
         "ui_width": 4,
         "name": "rotation",
