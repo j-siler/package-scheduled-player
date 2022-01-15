@@ -29,12 +29,12 @@
         "hint": "Use for testing. Leave empty to use current time",
         "default": ""
     }, {
-        "title": "Simulated Time2",
+        "title": "24 Hour - AM/PM",
         "ui_width": 4,
-        "name": "time2",
-        "type": "string",
-        "hint": "Use for testing. Leave empty to use current time",
-        "default": ""
+        "name": "ampm",
+        "type": "boolean",
+        "hint": "AM/PM for use in appropriate locales",
+	"default": false
     }, {
         "title": "Rotation",
         "ui_width": 4,
