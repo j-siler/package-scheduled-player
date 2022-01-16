@@ -351,14 +351,14 @@
 	      </select-dropdown>
 	    </div>
 
-	    <div class='col-xs-3'>
+<!--	    <div class='col-xs-3'> -->
               <label class='field-label'>24 Hour or AM/PM</label>
               <select-dropdown
                 :selected="timeformat"
                 :values="timeformats"
                 @onSelected="onSetConfigValue('timeformat', $event)">
               </select-dropdown>
-            </div>
+<!--            </div> -->
             <div class='col-xs-5'>
               <label class='field-label'>Simulate Time</label><br/>
               <input class="form-control" type="text" placeholder="DD.MM.YYYY HH:MM" v-model="time"/>
