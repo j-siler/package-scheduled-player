@@ -1078,21 +1078,21 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
 		     hour = 12
 		  end
 	       end
-
-	       local time = string.format(fmt, hour, minute, second) .. ampm
-	       local w = font:width(time, size)
-
-	       local x
-	       if clock_align == "left" then
-		  x = x1
-	       elseif clock_align == "right" then
-		  x = x2 - w
-	       elseif clock_align == "center" then
-		  x = x1 + (x2-x1)/2 - w/2
-	       end
-
-	       font:write(x, y1, time, size, r,g,b,1)
 	    end
+
+	    local time = string.format(fmt, hour, minute, second) .. ampm
+	    local w = font:width(time, size)
+	    
+	    local x
+	    if clock_align == "left" then
+	       x = x1
+	    elseif clock_align == "right" then
+	       x = x2 - w
+	    elseif clock_align == "center" then
+	       x = x1 + (x2-x1)/2 - w/2
+	    end
+	    
+	    font:write(x, y1, time, size, r,g,b,1)
 	 end
       end
    elseif clock_mode == "analog_clock" then
