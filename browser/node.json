@@ -1,7 +1,0 @@
-{
-    "name": "Browser Poller",
-    "permissions": {
-        "network": "Needs to access info-beamer API"
-    },
-    "options": []
-}
