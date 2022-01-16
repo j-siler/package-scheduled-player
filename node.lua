@@ -1086,7 +1086,7 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
 	    elseif clock_align == "center" then
 	       x = x1 + (x2-x1)/2 - w/2
 	    end
-	    ---[[
+	    --[[
 	    log("TimeTile",
 		"About to write %s at x=%d, y1=%d, width=%d, r=%f, g=%f, b=%f",
 		x, y1, size, r, g, b)
