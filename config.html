@@ -3,302 +3,302 @@
   <!-- 
 
 
-  You can edit and test this configuration interface locally.
-  Just run (for example):
+       You can edit and test this configuration interface locally.
+       Just run (for example):
 
-    python -m SimpleHTTPServer
+       python -m SimpleHTTPServer
 
-  and point your browser to
-  
-    http://localhost:8000/config.html
+       and point your browser to
+       
+       http://localhost:8000/config.html
 
-  You can learn more about custom configuration interfaces
-  at https://info-beamer.com/doc/package-reference#customconfigurationinterface
+       You can learn more about custom configuration interfaces
+       at https://info-beamer.com/doc/package-reference#customconfigurationinterface
 
-  
-  -->
+       
+    -->
   <head>
     <meta charset="UTF-8">
     <style>
       h3 {
-        margin-top: 10px;
-        margin-bottom: 10px;
-        color: #444;
-        border-bottom: 2px solid #eee;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      color: #444;
+      border-bottom: 2px solid #eee;
       }
       hr {
-        margin: 30px 0;
-        border-color: #f8f8f8;
+      margin: 30px 0;
+      border-color: #f8f8f8;
       }
       .header {
-        margin-top: 0;
+      margin-top: 0;
       }
       .debugged {
-        box-shadow: inset 0 0 0px 3px #ffb800;
+      box-shadow: inset 0 0 0px 3px #ffb800;
       }
       .handle {
-        display: inline-block;
-        background: URL(data:image/gif;base64,R0lGODlhGAAEAIABAIWFhf///yH5BAEKAAEALAAAAAAYAAQAAAIPjB8AprwIUUtvxouz3qYAADs=) repeat left top;
-        width: 24px;
-        height: 20px;
-        margin-bottom: -7px;
-        cursor: move;
-        margin-right: 10px;
+      display: inline-block;
+      background: URL(data:image/gif;base64,R0lGODlhGAAEAIABAIWFhf///yH5BAEKAAEALAAAAAAYAAQAAAIPjB8AprwIUUtvxouz3qYAADs=) repeat left top;
+      width: 24px;
+      height: 20px;
+      margin-bottom: -7px;
+      cursor: move;
+      margin-right: 10px;
       }
       .hour-editor {
-        user-select: none;
-        -moz-user-select: none;
-        margin-top: 10px;
-        cursor: pointer;
+      user-select: none;
+      -moz-user-select: none;
+      margin-top: 10px;
+      cursor: pointer;
       }
       .day {
-        float: left;
-        width: 80px;
+      float: left;
+      width: 80px;
       }
       .hour {
-        display: inline-block;
-        width: 25px;
-        padding: 2px 0 2px 0;
-        text-align: center;
-        background-color: #FCC;
-        box-shadow: inset 0px 0px 1px 1px rgba(0,0,0,0.1);
+      display: inline-block;
+      width: 25px;
+      padding: 2px 0 2px 0;
+      text-align: center;
+      background-color: #FCC;
+      box-shadow: inset 0px 0px 1px 1px rgba(0,0,0,0.1);
       }
       .hour.on {
-        background-color: #CFC;
+      background-color: #CFC;
       }
       .drag-target {
-        display: block;
-        min-height: 30px;
+      display: block;
+      min-height: 30px;
       }
       .popup {
-        position: fixed;
-        top: 0;
-        left: 10px;
-        right: 10px;
-        min-height: 100px;
-        border: 1px solid #ccc;
-        background-color: #fff;
-        box-shadow: 3px 3px 6px 6px rgba(0,0,0,0.1);
-        z-index: 1;
+      position: fixed;
+      top: 0;
+      left: 10px;
+      right: 10px;
+      min-height: 100px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      box-shadow: 3px 3px 6px 6px rgba(0,0,0,0.1);
+      z-index: 1;
       }
       .add-tile-panel {
-        margin-top: 15px;
-        text-align: right;
-        background-color: #eee;
-        padding: 3px;
-        border-left: 1px solid #ddd;
-        border-right: 1px solid #ddd;
-        border-top: 1px solid #ddd;
-        border-top-left-radius: 3px;
-        border-top-right-radius: 3px;
+      margin-top: 15px;
+      text-align: right;
+      background-color: #eee;
+      padding: 3px;
+      border-left: 1px solid #ddd;
+      border-right: 1px solid #ddd;
+      border-top: 1px solid #ddd;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
       }
       .add-tile-panel .intro {
-        display: inline-block;
-        float: left;
-        margin-top: 8px;
-        margin-left: 5px;
+      display: inline-block;
+      float: left;
+      margin-top: 8px;
+      margin-left: 5px;
       }
       .asset-filter {
-        margin-bottom: 5px;
+      margin-bottom: 5px;
       }
       .compact-thumb {
-        width: 32px;
-        height: 32px;
-        margin-right: 5px;
-        background-color: #ddd;
+      width: 32px;
+      height: 32px;
+      margin-right: 5px;
+      background-color: #ddd;
       }
       .asset-icon {
-        max-height: 500px;
-        overflow-y: scroll;
-        padding-top: 3px;
-        padding-bottom: 3px;
+      max-height: 500px;
+      overflow-y: scroll;
+      padding-top: 3px;
+      padding-bottom: 3px;
       }
       .asset {
-        background-color: #eee;
-        margin-top: 10px;
-        margin-bottom: 10px;
+      background-color: #eee;
+      margin-top: 10px;
+      margin-bottom: 10px;
       }
       .asset.highlighted {
-        box-shadow: 0px 0px 4px 4px rgba(120,50,0,0.3);
+      box-shadow: 0px 0px 4px 4px rgba(120,50,0,0.3);
       }
       .asset:hover {
-        box-shadow: 0px 0px 4px 4px rgba(0,0,0,0.5);
+      box-shadow: 0px 0px 4px 4px rgba(0,0,0,0.5);
       }
       .tile-details {
-        margin-top: 5px;
-        margin-bottom: 5px;
+      margin-top: 5px;
+      margin-bottom: 5px;
       }
       .table-clickable tr {
-        cursor: pointer;
+      cursor: pointer;
       }
       .schedule-header {
-        border-top: 3px solid #c4c4c4;
-        /*
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        */
-        padding: 10px;
-        box-shadow: inset 0 30px 20px -20px #e8e8e8;
+      border-top: 3px solid #c4c4c4;
+      /*
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      */
+      padding: 10px;
+      box-shadow: inset 0 30px 20px -20px #e8e8e8;
       }
       .schedule-name {
-        display: inline-block !important;
-        width: 250px !important;
+      display: inline-block !important;
+      width: 250px !important;
       }
       .schedule-title {
-        color: #2597bf;
-        font-weight: bold;
-        font-size: 200%;
-        margin-top: 0;
+      color: #2597bf;
+      font-weight: bold;
+      font-size: 200%;
+      margin-top: 0;
       }
       .time-editor {
-        margin-top: 5px;
+      margin-top: 5px;
       }
       .page-text {
-        min-height: 15em;
+      min-height: 15em;
       }
       .page-layout {
-        border: 1px solid #eee;
-        position: relative;
-        background-color: black;
-        margin-bottom: 3px;
+      border: 1px solid #eee;
+      position: relative;
+      background-color: black;
+      margin-bottom: 3px;
       }
       .page-tile {
-        position: absolute;
-        box-shadow: inset 0 0 0 10px;
+      position: absolute;
+      box-shadow: inset 0 0 0 10px;
       }
       .field-label {
-        color: #aaa;
-        margin-bottom: 2px;
-        margin-top: 0;
-        font-weight: normal;
+      color: #aaa;
+      margin-bottom: 2px;
+      margin-top: 0;
+      font-weight: normal;
       }
       .duration-input {
-        display: inline-block;
-        width: 70px;
+      display: inline-block;
+      width: 70px;
       }
       .trigger-input {
-        display: inline-block;
-        width: 120px;
+      display: inline-block;
+      width: 120px;
       }
       .layout-name {
-        margin-bottom: 10px;
+      margin-bottom: 10px;
       }
       .checkbox {
-        margin-top: 5px;
-        margin-bottom: 5px;
+      margin-top: 5px;
+      margin-bottom: 5px;
       }
       .color-pick {
-        color: #fff;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        display: inline-block;
-        height: 32px;
-        /* margin-top: -4px; */
-        width: 40px;
+      color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      display: inline-block;
+      height: 32px;
+      /* margin-top: -4px; */
+      width: 40px;
       }
       .img-thumb {
-        margin-left: auto;
-        margin-right: auto;
+      margin-left: auto;
+      margin-right: auto;
       }
       .img-shadow {
-        box-shadow: 0px 0px 40px 4px rgba(0,0,0,0.1);
+      box-shadow: 0px 0px 40px 4px rgba(0,0,0,0.1);
       }
       .page-editor {
-        margin-top: 0;
-        margin-bottom: 0;
+      margin-top: 0;
+      margin-bottom: 0;
       }
       .date-select select {
-        background-color: inherit;
-        border: 0;
-        border-bottom: 3px solid lightgrey;
+      background-color: inherit;
+      border: 0;
+      border-bottom: 3px solid lightgrey;
       }
       .date-select input {
-        background-color: inherit;
-        border: 0;
-        border-bottom: 3px solid lightgrey;
+      background-color: inherit;
+      border: 0;
+      border-bottom: 3px solid lightgrey;
       }
       .time-editor hr {
-        margin-top: 10px;
-        margin-bottom: 10px;
+      margin-top: 10px;
+      margin-bottom: 10px;
       }
       .time-editor .error {
-        color: red;
+      color: red;
       }
       .time-editor .error-msg {
-        background-color: red;
-        color: white;
-        border-radius: 5px;
-        padding: 2px 10px;
+      background-color: red;
+      color: white;
+      border-radius: 5px;
+      padding: 2px 10px;
       }
       .presets {
-        background-color: #e8e8e8;
-        padding: 5px;
-        border-color: #d8d8d8;
-        border-radius: 3px;
+      background-color: #e8e8e8;
+      padding: 5px;
+      border-color: #d8d8d8;
+      border-radius: 3px;
       }
       .tile-option select {
-        margin-bottom: 5px;
+      margin-bottom: 5px;
       }
       .tile-option input {
-        margin-bottom: 5px;
+      margin-bottom: 5px;
       }
       .interaction-ui {
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        text-align: right;
-        margin-top: 5px;
-        background-color: #eaf6ea;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      text-align: right;
+      margin-top: 5px;
+      background-color: #eaf6ea;
       }
       .timespan-editor {
-        margin-top: 10px;
+      margin-top: 10px;
       }
       .timespan-editor td {
-        padding: 2px 0;
+      padding: 2px 0;
       }
       .timespan-editor input[type="checkbox"] {
-        margin-top: -3px;
+      margin-top: -3px;
       }
       .timespan-editor input {
-        background-color: inherit;
-        border: 0;
-        border-bottom: 3px solid lightgrey;
+      background-color: inherit;
+      border: 0;
+      border-bottom: 3px solid lightgrey;
       }
       .timeinterval-editor {
-        margin-top: 10px;
+      margin-top: 10px;
       }
       .timeinterval-editor input {
-        background-color: inherit;
-        border: 0;
-        border-bottom: 3px solid lightgrey;
+      background-color: inherit;
+      border: 0;
+      border-bottom: 3px solid lightgrey;
       }
       .tile-editor-num {
-        max-width: 50px;
-        border: none;
-        background-color: rgba(255,255,255,0.6);
-        border-bottom: 1px solid #ddd;
+      max-width: 50px;
+      border: none;
+      background-color: rgba(255,255,255,0.6);
+      border-bottom: 1px solid #ddd;
       }
       input[type=number]::-webkit-inner-spin-button, 
       input[type=number]::-webkit-outer-spin-button { 
-        -webkit-appearance: none; 
-        margin: 0; 
+      -webkit-appearance: none; 
+      margin: 0; 
       }
       .no-wrap {
-        white-space: nowrap;
+      white-space: nowrap;
       }
       .button-row {
-        margin-top: 10px;
-        margin-bottom: 10px;
+      margin-top: 10px;
+      margin-bottom: 10px;
       }
       .fallback-note {
-        margin-bottom: 0px;
-        margin-top: 10px;
+      margin-bottom: 0px;
+      margin-top: 10px;
       }
       .transparency-select {
-        border: 1px solid gray;
-        padding: 0;
-        margin: 0;
-        background-color: transparent;
+      border: 1px solid gray;
+      padding: 0;
+      margin: 0;
+      background-color: transparent;
       }
     </style>
   </head>
@@ -342,15 +342,24 @@
         <div v-if="tab == 'config'">
           <h3>Time settings</h3>
           <div class='row'>
-            <div class='col-xs-8'>
+            <div class='col-xs-3'>
               <label class='field-label'>Timezone</label><br/>
               <select-dropdown
                 :selected="timezone"
                 :values="timezones"
                 @onSelected="onSetConfigValue('timezone', $event)">
+	      </select-dropdown>
+	    </div>
+
+	    <div class='col-xs-3'>
+              <label class='field-label'>24 Hour or AM/PM</label>
+              <select-dropdown
+                :selected="timeformat"
+                :values="timeformats"
+                @onSelected="onSetConfigValue('timeformat', $event)">
               </select-dropdown>
             </div>
-            <div class='col-xs-4'>
+            <div class='col-xs-5'>
               <label class='field-label'>Simulate Time</label><br/>
               <input class="form-control" type="text" placeholder="DD.MM.YYYY HH:MM" v-model="time"/>
             </div>
@@ -377,29 +386,29 @@
               </select-dropdown>
             </div>
             <!--
-            <div class='col-xs-4'>
-              <label class='field-label'>
-                Turn off display if nothing scheduled
-              </label>
-              <input 
-                type='checkbox'
-                :checked="poweroff"
-                @change="onSetConfigValue('poweroff', $event.target.checked)">
-                (not implemented yet)
-            </div>
-            -->
-            <div class='col-xs-4'>
-              <label class='field-label'>
-                Background Color
-              </label><br/>
-              <input 
-                type='color'
-                v-model="background_rgb">
-              (transparent
-              <input
-                type='checkbox'
-                v-model="background_a">)
-            </div>
+		<div class='col-xs-4'>
+		  <label class='field-label'>
+                    Turn off display if nothing scheduled
+		  </label>
+		  <input 
+                    type='checkbox'
+                    :checked="poweroff"
+                    @change="onSetConfigValue('poweroff', $event.target.checked)">
+                  (not implemented yet)
+		</div>
+		-->
+		<div class='col-xs-4'>
+		  <label class='field-label'>
+                    Background Color
+		  </label><br/>
+		  <input 
+                    type='color'
+                    v-model="background_rgb">
+		  (transparent
+		  <input
+                    type='checkbox'
+                    v-model="background_a">)
+		</div>
           </div>
 
           <br/><br/><br/>
@@ -469,11 +478,11 @@
       <div class="panel panel-default layout-editor">
         <div class="panel-body">
           <input type='text'
-            class='form-control layout-name'
-            :value='layout.name'
-            @keyup="onUpdateName($event.target.value)"
-            @change="onUpdateName($event.target.value)"
-          />
+		 class='form-control layout-name'
+		 :value='layout.name'
+		 @keyup="onUpdateName($event.target.value)"
+		 @change="onUpdateName($event.target.value)"
+		 />
           <tile-editor
             :tiles="layout.tiles"
             @onAddTile="onAddTile"
@@ -482,7 +491,7 @@
             @onDeleteTile="onDeleteTile"
             @onSetTileConfig="onSetTileConfig"
             @onReorderTiles="onReorderTiles"
-          />
+            />
         </div>
         <div class="panel-footer">
           <div class='row'>
@@ -504,7 +513,7 @@
             <schedule-row
               v-for="schedule, schedule_id in schedules"
               :schedule_id="schedule_id"
-            />
+              />
           </draggable>
         </table>
         <div class='text-right'>
@@ -548,7 +557,7 @@
             @onSpanAdd='onScheduleSpanAdd'
             @onSpanDelete='onScheduleSpanDelete'
             @onSpanUpdate='onScheduleSpanUpdate'
-          />
+            />
         </div>
 
         <div v-if='compact'>
@@ -622,11 +631,11 @@
         <td class='form-inline'>
           <span class='handle'></span>
           <input type='text'
-            class='form-control schedule-name'
-            :value='schedule.name'
-            @keyup="onUpdateName($event.target.value)"
-            @change="onUpdateName($event.target.value)"
-          />
+		 class='form-control schedule-name'
+		 :value='schedule.name'
+		 @keyup="onUpdateName($event.target.value)"
+		 @change="onUpdateName($event.target.value)"
+		 />
         </td>
         <td>{{schedule.pages.length}} pages</td>
         <td class="text-right">
@@ -664,8 +673,8 @@
 
     <script type="text/x-template" id="page-editor">
       <div class="panel panel-default page-editor"
-          :class='{debugged: is_debugged}'
-      >
+           :class='{debugged: is_debugged}'
+	   >
         <div class="panel-body">
           <tile-editor
             :tiles="page.tiles"
@@ -675,12 +684,12 @@
             @onSetTileConfig="onSetTileConfig"
             @onSelectTileAsset="onSelectTileAsset"
             @onReorderTiles="onReorderTiles"
-          />
+            />
           <interaction-ui
             v-if="is_interactive"
             :interaction="interaction"
             @onChange='onInteractionUpdate'
-          />
+            />
         </div>
         <div class="panel-footer">
           <div class='row'>
@@ -690,7 +699,7 @@
                 :selected="duration"
                 :values="durations"
                 @onSelected="onSetDuration($event)"
-              />
+		/>
               <template v-else>
                 Duration (s):
                 <input
@@ -698,7 +707,7 @@
                   type='number' step='1' min='0' required
                   :value="duration"
                   @change="onSetDuration(parseInt($event.target.value))"
-                />
+                  />
               </template>
               <button class='btn btn-default' v-if="!is_interactive" @click="onMakeInteractive">
                 Interactive
@@ -711,7 +720,7 @@
                 :selected="page.layout_id"
                 :values="layouts"
                 @onSelected="onSetLayout($event)"
-              />
+		/>
             </div>
             <div class='col-xs-4 text-right'>
 
@@ -743,7 +752,7 @@
             type='date' required
             :value="date"
             @change="onChange($event.target.value)"
-          />
+            />
         </span>
         <span v-else>
           <select @change="onSelect($event.target.value)">
@@ -771,21 +780,21 @@
                 unset="now"
                 :date="scheduling.starts"
                 @onSetDate="onSetStarts"
-              />
+		/>
               and
               <date-select
                 unset="the end of time"
                 :date="scheduling.ends"
                 @onSetDate="onSetEnds"
-              />
+		/>
             </template>
             <!--
-              <select-dropdown
-                :selected="null"
-                :values="other_schedules"
-                @onSelected="onCopySchedule($event)">
-              </select-dropdown>
-            -->
+		<select-dropdown
+                  :selected="null"
+                  :values="other_schedules"
+                  @onSelected="onCopySchedule($event)">
+		</select-dropdown>
+		-->
           </div>
 
           <div class='alert alert-info fallback-note' v-if="mode == 'fallback'">
@@ -799,21 +808,21 @@
             v-if="mode == 'hour'"
             :scheduling="scheduling"
             @onHourChange="onHourChange"
-          />
+            />
           <timespan-editor
             v-else-if="mode == 'span'"
             :scheduling="scheduling"
             @onAdd="onSpanAdd"
             @onDelete="onSpanDelete"
             @onUpdate="onSpanUpdate"
-          />
+            />
           <timeinterval-editor
             v-else-if="mode == 'interval'"
             :scheduling="scheduling"
             @onUpdate="onIntervalUpdate"
             @onSetDateStart="onSetStarts"
             @onSetDateEnd="onSetEnds"
-          />
+            />
         </div>
       </div>
     </script>
@@ -826,23 +835,23 @@
           </div>
           <div class='hours'>
             <span class='hour' :class='{on: hour.on}'
-              v-for="hour in day.hours"
-              @mousedown='onEditStart(hour.index)'
-              @mouseover='onEditToggle(hour.index)'>
+		  v-for="hour in day.hours"
+		  @mousedown='onEditStart(hour.index)'
+		  @mouseover='onEditToggle(hour.index)'>
               {{hour.hour}}
             </span>
           </div>
         </div>
-          <br/>
-          <div class='presets text-right'>
-            Presets: 
-            <button class="btn btn-default btn-sm" @click="onPreset('never')">Never</button>
-            <button class="btn btn-default btn-sm" @click="onPreset('always')">Always</button>
-            <button class="btn btn-default btn-sm" @click="onPreset('weekend')">+Weekend</button>
-            <button class="btn btn-default btn-sm" @click="onPreset('workday')">+Workdays</button>
-            <button class="btn btn-default btn-sm" @click="onPreset('night')">-Night</button>
-            <button class="btn btn-default btn-sm" @click="onPreset('invert')">Invert</button>
-          </div>
+        <br/>
+        <div class='presets text-right'>
+          Presets: 
+          <button class="btn btn-default btn-sm" @click="onPreset('never')">Never</button>
+          <button class="btn btn-default btn-sm" @click="onPreset('always')">Always</button>
+          <button class="btn btn-default btn-sm" @click="onPreset('weekend')">+Weekend</button>
+          <button class="btn btn-default btn-sm" @click="onPreset('workday')">+Workdays</button>
+          <button class="btn btn-default btn-sm" @click="onPreset('night')">-Night</button>
+          <button class="btn btn-default btn-sm" @click="onPreset('invert')">Invert</button>
+        </div>
       </div>
     </script>
 
@@ -853,13 +862,13 @@
         </div>
         <div class='col-xs-10'>
           <input required
-            type='date'
-            v-model.lazy='date_starts'
-          />
+		 type='date'
+		 v-model.lazy='date_starts'
+		 />
           <input required
-            type='time'
-            v-model.lazy='interval_starts'
-          />
+		 type='time'
+		 v-model.lazy='interval_starts'
+		 />
         </div>
         <div class='col-xs-2'>
           Schedule until
@@ -867,13 +876,13 @@
         <div class='col-xs-10'>
           <template v-if='has_end_date'>
             <input required
-              type='date'
-              v-model.lazy='date_ends'
-            />
+		   type='date'
+		   v-model.lazy='date_ends'
+		   />
             <input required
-              type='time'
-              v-model.lazy='interval_ends'
-            />
+		   type='time'
+		   v-model.lazy='interval_ends'
+		   />
             <span @click="onDeleteEnd" class='glyphicon glyphicon-remove-sign'></span>
           </template>
           <template v-else>
@@ -909,23 +918,23 @@
                   type='checkbox'
                   :checked='span.days[day_id]'
                   @change="onToggle(span_id, day_id, $event.target.checked)"
-                />
+                  />
               </td>
               <td class='text-right'>
                 between
                 <input required
-                  type='time'
-                  :value='span.starts'
-                  placeholder='00:00'
-                  @change="onSetTime(span_id, 'starts', $event.target.value)"
-                />
+                       type='time'
+                       :value='span.starts'
+                       placeholder='00:00'
+                       @change="onSetTime(span_id, 'starts', $event.target.value)"
+                       />
                 and
                 <input required
-                  type='time'
-                  :value='span.ends'
-                  placeholder='00:00'
-                  @change="onSetTime(span_id, 'ends', $event.target.value)"
-                />
+                       type='time'
+                       :value='span.ends'
+                       placeholder='00:00'
+                       @change="onSetTime(span_id, 'ends', $event.target.value)"
+                       />
                 &nbsp;
                 <button
                   class='btn btn-xs btn-danger'
@@ -960,7 +969,7 @@
             @onSelectTile="selected_tile_id = tile_id"
             @onPositionTile="onPositionTile(tile_id, $event)"
             @onSelectAsset="onSelectTileAsset(tile_id, $event)"
-          />
+            />
         </div>
         <div class='add-tile-panel'>
           <template v-if='!show_more'>
@@ -1019,7 +1028,7 @@
               v-if="drag_drop_tiles.length > 0"
               v-model="drag_drop_tiles"
               :options="tile_dd_options"
-            >
+              >
               <tile-detail 
                 v-for="tile, tile_id in tiles"
                 :tile="tile"
@@ -1028,7 +1037,7 @@
                 @onPositionTile="onPositionTile(tile_id, $event)"
                 @onSelectTileAsset="onSelectTileAsset(tile_id, $event)"
                 @onTileDelete="onDeleteTile(tile_id)"
-              />
+		/>
             </draggable>
             <tbody v-else>
               <tr>
@@ -1082,10 +1091,10 @@
 
     <script type="text/x-template" id="tile-box">
       <div class="page-tile"
-        :style="style"
-        v-draggable
-        @click="onSelectTile"
-        @resize="onResizeTile">
+           :style="style"
+           v-draggable
+           @click="onSelectTile"
+           @resize="onResizeTile">
       </div>
     </script>
 
@@ -1154,550 +1163,550 @@
               :selected="config.fade_time || 0"
               :values="fade_times"
               @onSelected="onSetValue('fade_time', $event)"/>
-            </select-dropdown>
-          </div>
-          <div class='col-xs-8'>
-            <select-dropdown
-              :selected="config.effect || 'none'"
-              :values="effects"
-              @onSelected="onSetValue('effect', $event)"/>
-            <br/>
+</select-dropdown>
+</div>
+<div class='col-xs-8'>
+  <select-dropdown
+    :selected="config.effect || 'none'"
+    :values="effects"
+    @onSelected="onSetValue('effect', $event)"/>
+  <br/>
 
-            <select-dropdown
-              v-if="effect == 'enter_exit_move'"
-              :selected="config.effect_easing || 'inQuad'"
-              :values="easings"
-              @onSelected="onSetValue('effect_easing', $event)"/>
-            <select-dropdown
-              v-if="effect == 'enter_exit_move'"
-              :selected="config.effect_direction || 'from_left'"
-              :values="directions"
-              @onSelected="onSetValue('effect_direction', $event)"/>
-            <select-dropdown
-              v-if="effect == 'enter_exit_move'"
-              :selected="config.effect_duration || 1"
-              :values="durations"
-              @onSelected="onSetValue('effect_duration', $event)"/>
+  <select-dropdown
+    v-if="effect == 'enter_exit_move'"
+    :selected="config.effect_easing || 'inQuad'"
+    :values="easings"
+    @onSelected="onSetValue('effect_easing', $event)"/>
+  <select-dropdown
+    v-if="effect == 'enter_exit_move'"
+    :selected="config.effect_direction || 'from_left'"
+    :values="directions"
+    @onSelected="onSetValue('effect_direction', $event)"/>
+  <select-dropdown
+    v-if="effect == 'enter_exit_move'"
+    :selected="config.effect_duration || 1"
+    :values="durations"
+    @onSelected="onSetValue('effect_duration', $event)"/>
 
-            <select-dropdown
-              v-if="effect == 'rotation'"
-              :selected="config.effect_easing || 'inQuad'"
-              :values="easings"
-              @onSelected="onSetValue('effect_easing', $event)"/>
-            <select-dropdown
-              v-if="effect == 'rotation'"
-              :selected="config.effect_rotation || 'y-axis'"
-              :values="rotations"
-              @onSelected="onSetValue('effect_rotation', $event)"/>
-            <select-dropdown
-              v-if="effect == 'rotation'"
-              :selected="config.effect_pivot || 'center'"
-              :values="pivots"
-              @onSelected="onSetValue('effect_pivot', $event)"/>
-          </div>
-        </div>
+  <select-dropdown
+    v-if="effect == 'rotation'"
+    :selected="config.effect_easing || 'inQuad'"
+    :values="easings"
+    @onSelected="onSetValue('effect_easing', $event)"/>
+  <select-dropdown
+    v-if="effect == 'rotation'"
+    :selected="config.effect_rotation || 'y-axis'"
+    :values="rotations"
+    @onSelected="onSetValue('effect_rotation', $event)"/>
+  <select-dropdown
+    v-if="effect == 'rotation'"
+    :selected="config.effect_pivot || 'center'"
+    :values="pivots"
+    @onSelected="onSetValue('effect_pivot', $event)"/>
+</div>
+</div>
+</div>
+</script>
+
+<script type="text/x-template" id="tile-option-video">
+  <div class='tile-option'>
+    <label class='field-label'>Video Configuration</label><br/>
+    <div class='row'>
+      <div class='col-xs-3'>
+        <select-dropdown
+          :selected="config.fade_time == undefined ? 0.5 : config.fade_time"
+          :values="fade_times"
+          @onSelected="onSetValue('fade_time', $event)"/>
+</select-dropdown>
+</div>
+<div class='col-xs-2'>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" :checked="config.looped" @change="onSetValue('looped', $event.target.checked)"/>
+      Loop video
+    </label>
+  </div>
+</div>
+<div class='col-xs-2'>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" :checked="config.audio" @change="onSetValue('audio', $event.target.checked)"/>
+      Play audio
+    </label>
+  </div>
+</div>
+<div class='col-xs-5'>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" :checked="config.transparency" @change="onSetValue('transparency', $event.target.checked)"/>
+      Chroma key color
+      <input type="color" v-model="transparent_color" class='transparency-select' v-if='config.transparency'/>
+    </label>
+  </div>
+</div>
+</div>
+</div>
+</script>
+
+<script type="text/x-template" id="tile-option-rawvideo">
+  <div class='tile-option'>
+    <label class='field-label'>HD Video Configuration</label><br/>
+    <div class='row'>
+      <div class='col-xs-4'>
+        <select-dropdown
+          :selected="config.fade_time == undefined ? 0.5 : config.fade_time"
+          :values="fade_times"
+          @onSelected="onSetValue('fade_time', $event)"/>
+</select-dropdown>
+</div>
+<div class='col-xs-2'>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" :checked="config.looped" @change="onSetValue('looped', $event.target.checked)"/>
+      Loop video
+    </label>
+  </div>
+</div>
+<div class='col-xs-2'>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" :checked="config.audio" @change="onSetValue('audio', $event.target.checked)"/>
+      Play audio
+    </label>
+  </div>
+</div>
+<div class='col-xs-4'>
+  <select-dropdown
+    :selected="config.layer || 5"
+    :values="layers"
+    @onSelected="onSetValue('layer', $event)"/>
+</select-dropdown>
+</div>
+</div>
+</div>
+</script>
+
+<script type="text/x-template" id="tile-option-stream">
+  <div class='tile-option'>
+    <label class='field-label'>Video Streaming Configuration</label><br/>
+    <div class='row'>
+      <div class='col-xs-6'>
+        <input placeholder="Url, e.g. http://10.0.0.1/stream.sdp" v-model="url" class='form-control'/>
       </div>
-    </script>
+      <div class='col-xs-4'>
+        <select-dropdown
+          :selected="config.layer || 5"
+          :values="layers"
+          @onSelected="onSetValue('layer', $event)"/>
+</select-dropdown>
+</div>
+<div class='col-xs-2'>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" :checked="config.audio" @change="onSetValue('audio', $event.target.checked)"/>
+      Play audio
+    </label>
+  </div>
+</div>
+</div>
+</div>
+</script>
 
-    <script type="text/x-template" id="tile-option-video">
-      <div class='tile-option'>
-        <label class='field-label'>Video Configuration</label><br/>
-        <div class='row'>
-          <div class='col-xs-3'>
-            <select-dropdown
-              :selected="config.fade_time == undefined ? 0.5 : config.fade_time"
-              :values="fade_times"
-              @onSelected="onSetValue('fade_time', $event)"/>
-            </select-dropdown>
-          </div>
-          <div class='col-xs-2'>
-            <div class="checkbox">
-              <label>
-                <input type="checkbox" :checked="config.looped" @change="onSetValue('looped', $event.target.checked)"/>
-                Loop video
-              </label>
-            </div>
-          </div>
-          <div class='col-xs-2'>
-            <div class="checkbox">
-              <label>
-                <input type="checkbox" :checked="config.audio" @change="onSetValue('audio', $event.target.checked)"/>
-                Play audio
-              </label>
-            </div>
-          </div>
-          <div class='col-xs-5'>
-            <div class="checkbox">
-              <label>
-                <input type="checkbox" :checked="config.transparency" @change="onSetValue('transparency', $event.target.checked)"/>
-                Chroma key color
-                <input type="color" v-model="transparent_color" class='transparency-select' v-if='config.transparency'/>
-              </label>
-            </div>
-          </div>
-        </div>
+<script type="text/x-template" id="tile-option-child">
+  <div
+    class='tile-option'
+    :is="child"
+    :config="config"
+    @setConfig='onSetValue'
+    >
+  </div>
+</script>
+
+<script type="text/x-template" id="tile-option-flat">
+  <div class='tile-option'>
+    <label class='field-label'>Flat Configuration</label><br/>
+    <div class='row'>
+      <div class='col-xs-3'>
+        <select-dropdown
+          :selected="config.fade_time || 0.5"
+          :values="fade_times"
+          @onSelected="onSetValue('fade_time', $event)"/>
+</select-dropdown>
+</div>
+<div class='col-xs-3'>
+  <input type="color" v-model="color" class='form-control'/>
+</div>
+<div class='col-xs-3'>
+  <input type="number" placeholder="Alpha" v-model="alpha" min="0" max="255" class='form-control'/>
+</div>
+</div>
+</div>
+</script>
+
+<script type="text/x-template" id="tile-option-time">
+  <div class='tile-option'>
+    <label class='field-label'>Time tile Configuration</label><br/>
+    <div>
+      <select-dropdown
+        :selected="mode"
+        :values="modes"
+        @onSelected="onSetValue('mode', $event)"/>
+</select-dropdown>
+<select-dropdown
+  :selected="timezone"
+  :values="timezones"
+  @onSelected="onSetValue('timezone', $event)">
+</select-dropdown>
+</div>
+<div v-if='mode == "digital_clock" || mode == "analog_clock"'>
+  <label class='field-label'>Clock config</label><br/>
+  <select-dropdown
+    :selected="type"
+    :values="types"
+    @onSelected="onSetValue('type', $event)"/>
+</select-dropdown>
+<select-dropdown v-if='mode == "analog_clock"'
+		 :selected="movement"
+		 :values="movements"
+		 @onSelected="onSetValue('movement', $event)"/>
+</select-dropdown>
+<select-dropdown v-if='mode == "digital_clock"'
+		 :selected="align"
+		 :values="aligns"
+		 @onSelected="onSetValue('align', $event)"/>
+</select-dropdown>
+<select-dropdown
+  :selected="style"
+  :values="styles"
+  @onSelected="onSetValue('style', $event)"/>
+</select-dropdown>
+<input type="color" v-model="color" class='color-pick'/>
+</div>
+<template v-else>
+  <label class='field-label'>Not implemented yet</label><br/>
+</template>
+</div>
+</script>
+
+<script type="text/x-template" id="tile-option-countdown">
+  <div class='tile-option'>
+    <div class='row'>
+      <div class='col-xs-6'>
+        <label class='field-label'>Countdown Target</label><br/>
+        <input placeholder="YYYY-MM-DD HH:MM:SS in setup's timezone" v-model="target" class='form-control'/>
       </div>
-    </script>
+      <div class='col-xs-6'>
+        <label class='field-label'>Mode</label><br/>
+        <select-dropdown
+          :selected="config.mode || 'countdown'"
+          :values="modes"
+          @onSelected="onSetValue('mode', $event)"/>
+</select-dropdown>
+</div>
+</div>
+<div>
+  <label class='field-label'>Presentation</label><br/>
+  <select-dropdown
+    :selected="config.type || 'hms'"
+    :values="types"
+    @onSelected="onSetValue('type', $event)"/>
+</select-dropdown>
+<select-dropdown
+  :selected="config.align || 'center'"
+  :values="aligns"
+  @onSelected="onSetValue('align', $event)"/>
+</select-dropdown>
+<select-dropdown
+  :selected="config.locale || 'english'"
+  :values="locales"
+  @onSelected="onSetValue('locale', $event)"/>
+</select-dropdown>
+<select-dropdown
+  :selected="config.font || 'default'"
+  :values="fonts"
+  @onSelected="onSetValue('font', $event)"/>
+</select-dropdown>
+<input type="color" v-model="color" class='color-pick'/>
+</div>
+</div>
+</script>
 
-    <script type="text/x-template" id="tile-option-rawvideo">
-      <div class='tile-option'>
-        <label class='field-label'>HD Video Configuration</label><br/>
-        <div class='row'>
-          <div class='col-xs-4'>
-            <select-dropdown
-              :selected="config.fade_time == undefined ? 0.5 : config.fade_time"
-              :values="fade_times"
-              @onSelected="onSetValue('fade_time', $event)"/>
-            </select-dropdown>
-          </div>
-          <div class='col-xs-2'>
-            <div class="checkbox">
-              <label>
-                <input type="checkbox" :checked="config.looped" @change="onSetValue('looped', $event.target.checked)"/>
-                Loop video
-              </label>
-            </div>
-          </div>
-          <div class='col-xs-2'>
-            <div class="checkbox">
-              <label>
-                <input type="checkbox" :checked="config.audio" @change="onSetValue('audio', $event.target.checked)"/>
-                Play audio
-              </label>
-            </div>
-          </div>
-          <div class='col-xs-4'>
-            <select-dropdown
-              :selected="config.layer || 5"
-              :values="layers"
-              @onSelected="onSetValue('layer', $event)"/>
-            </select-dropdown>
-          </div>
-        </div>
-      </div>
-    </script>
+<script type="text/x-template" id="tile-option-markup">
+  <div class='tile-option'>
+    <label class='field-label'>Text/Markup Configuration</label><br/>
+    <div class='row'>
+      <div class='col-xs-3'>
+        <select-dropdown
+          :selected="config.fade_time || 0"
+          :values="fade_times"
+          @onSelected="onSetValue('fade_time', $event)"/>
+</select-dropdown>
+</div>
+<div class='col-xs-3'>
+  <select-dropdown
+    :selected="config.font_size || 35"
+    :values="font_sizes"
+    @onSelected="onSetValue('font_size', $event)"/>
+</select-dropdown>
+</div>
+<div class='col-xs-3'>
+  <select-dropdown
+    :selected="config.align || 'tl'"
+    :values="aligns"
+    @onSelected="onSetValue('align', $event)"/>
+</select-dropdown>
+</div>
+<div class='col-xs-3'>
+  <input type="color" v-model="color" class='form-control'/>
+</div>
+</div>
+<div class='row'>
+  <div class='col-xs-12'>
+    <label class='field-label'>Markup (Some Markdown supported)</label><br/>
+    <textarea v-model="text" class="form-control" rows="10"></textarea>
+  </div>
+</div>
+</div>
+</script>
 
-    <script type="text/x-template" id="tile-option-stream">
-      <div class='tile-option'>
-        <label class='field-label'>Video Streaming Configuration</label><br/>
-        <div class='row'>
-          <div class='col-xs-6'>
-            <input placeholder="Url, e.g. http://10.0.0.1/stream.sdp" v-model="url" class='form-control'/>
-          </div>
-          <div class='col-xs-4'>
-            <select-dropdown
-              :selected="config.layer || 5"
-              :values="layers"
-              @onSelected="onSetValue('layer', $event)"/>
-            </select-dropdown>
-          </div>
-          <div class='col-xs-2'>
-            <div class="checkbox">
-              <label>
-                <input type="checkbox" :checked="config.audio" @change="onSetValue('audio', $event.target.checked)"/>
-                Play audio
-              </label>
-            </div>
-          </div>
-        </div>
-      </div>
-    </script>
+<script type="text/x-template" id="asset-browser">
+  <button class='btn btn-default' @click="onOpen">
+    {{title}}
+  </button>
+</script>
 
-    <script type="text/x-template" id="tile-option-child">
-      <div
-        class='tile-option'
-        :is="child"
-        :config="config"
-        @setConfig='onSetValue'
-      >
-      </div>
-    </script>
+<script type="text/x-template" id="select-dropdown">
+  <select
+    :class="{'btn-block': block, 'btn btn-default': true}"
+    @change="onSelect">
+    <option
+      class='text-left'
+      v-for="kv in values"
+      :value="JSON.stringify(kv[0])"
+      :disabled="kv[0] === ''"
+      :selected="JSON.stringify(selected) == JSON.stringify(kv[0])">
+      {{kv[1]}}
+    </option>
+  </select>
+</script>
 
-    <script type="text/x-template" id="tile-option-flat">
-      <div class='tile-option'>
-        <label class='field-label'>Flat Configuration</label><br/>
-        <div class='row'>
-          <div class='col-xs-3'>
-            <select-dropdown
-              :selected="config.fade_time || 0.5"
-              :values="fade_times"
-              @onSelected="onSetValue('fade_time', $event)"/>
-            </select-dropdown>
-          </div>
-          <div class='col-xs-3'>
-            <input type="color" v-model="color" class='form-control'/>
-          </div>
-          <div class='col-xs-3'>
-            <input type="number" placeholder="Alpha" v-model="alpha" min="0" max="255" class='form-control'/>
-          </div>
-        </div>
-      </div>
-    </script>
+<script type="text/x-template" id="interaction-ui">
+  <div class='interaction-ui'>
+    On
 
-    <script type="text/x-template" id="tile-option-time">
-      <div class='tile-option'>
-        <label class='field-label'>Time tile Configuration</label><br/>
-        <div>
-          <select-dropdown
-            :selected="mode"
-            :values="modes"
-            @onSelected="onSetValue('mode', $event)"/>
-          </select-dropdown>
-          <select-dropdown
-            :selected="timezone"
-            :values="timezones"
-            @onSelected="onSetValue('timezone', $event)">
-          </select-dropdown>
-        </div>
-        <div v-if='mode == "digital_clock" || mode == "analog_clock"'>
-          <label class='field-label'>Clock config</label><br/>
-          <select-dropdown
-            :selected="type"
-            :values="types"
-            @onSelected="onSetValue('type', $event)"/>
-          </select-dropdown>
-          <select-dropdown v-if='mode == "analog_clock"'
-            :selected="movement"
-            :values="movements"
-            @onSelected="onSetValue('movement', $event)"/>
-          </select-dropdown>
-          <select-dropdown v-if='mode == "digital_clock"'
-            :selected="align"
-            :values="aligns"
-            @onSelected="onSetValue('align', $event)"/>
-          </select-dropdown>
-          <select-dropdown
-            :selected="style"
-            :values="styles"
-            @onSelected="onSetValue('style', $event)"/>
-          </select-dropdown>
-          <input type="color" v-model="color" class='color-pick'/>
-        </div>
-        <template v-else>
-          <label class='field-label'>Not implemented yet</label><br/>
-        </template>
-      </div>
-    </script>
+    <select
+      class='btn btn-default'
+      @change="onSelectKey">
+      <option
+        class='text-left'
+        v-for="key in keys"
+        :value="key.key"
+        :selected="key.key == interaction.key">
+        {{ key.value }}
+      </option>
+    </select>
 
-    <script type="text/x-template" id="tile-option-countdown">
-      <div class='tile-option'>
-        <div class='row'>
-          <div class='col-xs-6'>
-            <label class='field-label'>Countdown Target</label><br/>
-            <input placeholder="YYYY-MM-DD HH:MM:SS in setup's timezone" v-model="target" class='form-control'/>
-          </div>
-          <div class='col-xs-6'>
-            <label class='field-label'>Mode</label><br/>
-            <select-dropdown
-              :selected="config.mode || 'countdown'"
-              :values="modes"
-              @onSelected="onSetValue('mode', $event)"/>
-            </select-dropdown>
-          </div>
-        </div>
-        <div>
-          <label class='field-label'>Presentation</label><br/>
-          <select-dropdown
-            :selected="config.type || 'hms'"
-            :values="types"
-            @onSelected="onSetValue('type', $event)"/>
-          </select-dropdown>
-          <select-dropdown
-            :selected="config.align || 'center'"
-            :values="aligns"
-            @onSelected="onSetValue('align', $event)"/>
-          </select-dropdown>
-          <select-dropdown
-            :selected="config.locale || 'english'"
-            :values="locales"
-            @onSelected="onSetValue('locale', $event)"/>
-          </select-dropdown>
-          <select-dropdown
-            :selected="config.font || 'default'"
-            :values="fonts"
-            @onSelected="onSetValue('font', $event)"/>
-          </select-dropdown>
-          <input type="color" v-model="color" class='color-pick'/>
-        </div>
-      </div>
-    </script>
+    <template v-if="interaction.key == 'remote'">
+      with value 
+      <input type="text" v-model="remote" class='form-control trigger-input'/>
+    </template>
 
-    <script type="text/x-template" id="tile-option-markup">
-      <div class='tile-option'>
-        <label class='field-label'>Text/Markup Configuration</label><br/>
-        <div class='row'>
-          <div class='col-xs-3'>
-            <select-dropdown
-              :selected="config.fade_time || 0"
-              :values="fade_times"
-              @onSelected="onSetValue('fade_time', $event)"/>
-            </select-dropdown>
-          </div>
-          <div class='col-xs-3'>
-            <select-dropdown
-              :selected="config.font_size || 35"
-              :values="font_sizes"
-              @onSelected="onSetValue('font_size', $event)"/>
-            </select-dropdown>
-          </div>
-          <div class='col-xs-3'>
-            <select-dropdown
-              :selected="config.align || 'tl'"
-              :values="aligns"
-              @onSelected="onSetValue('align', $event)"/>
-            </select-dropdown>
-          </div>
-          <div class='col-xs-3'>
-            <input type="color" v-model="color" class='form-control'/>
-          </div>
-        </div>
-        <div class='row'>
-          <div class='col-xs-12'>
-            <label class='field-label'>Markup (Some Markdown supported)</label><br/>
-            <textarea v-model="text" class="form-control" rows="10"></textarea>
-          </div>
-        </div>
-      </div>
-    </script>
+    <span v-if="interaction.key != ''">
+      show this page
 
-    <script type="text/x-template" id="asset-browser">
-      <button class='btn btn-default' @click="onOpen">
-        {{title}}
-      </button>
-    </script>
-
-    <script type="text/x-template" id="select-dropdown">
       <select
-        :class="{'btn-block': block, 'btn btn-default': true}"
-        @change="onSelect">
+        class='btn btn-default'
+        @change="onSelectDuration">
         <option
           class='text-left'
-          v-for="kv in values"
-          :value="JSON.stringify(kv[0])"
-          :disabled="kv[0] === ''"
-          :selected="JSON.stringify(selected) == JSON.stringify(kv[0])">
-          {{kv[1]}}
+          v-for="duration in durations"
+          :value="duration.key"
+          :selected="duration.key == interaction.duration">
+          {{ duration.value }}
         </option>
       </select>
-    </script>
-
-    <script type="text/x-template" id="interaction-ui">
-      <div class='interaction-ui'>
-        On
-
-        <select
-          class='btn btn-default'
-          @change="onSelectKey">
-          <option
-            class='text-left'
-            v-for="key in keys"
-            :value="key.key"
-            :selected="key.key == interaction.key">
-            {{ key.value }}
-          </option>
-        </select>
-
-        <template v-if="interaction.key == 'remote'">
-          with value 
-          <input type="text" v-model="remote" class='form-control trigger-input'/>
-        </template>
-
-        <span v-if="interaction.key != ''">
-          show this page
-
-          <select
-            class='btn btn-default'
-            @change="onSelectDuration">
-            <option
-              class='text-left'
-              v-for="duration in durations"
-              :value="duration.key"
-              :selected="duration.key == interaction.duration">
-              {{ duration.value }}
-            </option>
-          </select>
-        </span>
-      </div>
-    </script>
+    </span>
+  </div>
+</script>
 
 
-    <script>
-      MOCK_ASSETS = {
-        1: {
-          id: 1,
-          thumb: "no-content-info-beamer.jpg",
-          filetype: 'image',
-          filename: 'zzzz lfkjekljf lkwjfkl wj efklwj lfkwjfl jwklfjwel kfjwlkfw jflk wjf.png',
-          uploaded: 1469707145,
-          typeclass: 'glyphicon-picture',
-          metadata: {
-            width: 1280,
-            height: 720,
-          },
-          uploaded: 1234,
-        },
-        2: {
-          id: 2,
-          thumb: "package.png",
-          filetype: 'video',
-          filename: 'AAAz.mp4',
-          uploaded: 1469007145,
-          metadata: {
-            duration: 12.34,
-            width: 1280,
-            height: 720,
-          },
-        }
-      }
-      for (var i = 0; i < 10; i++) {
-        MOCK_ASSETS[i+3] = {
-          id: i+2,
-          thumb: "screenshot.jpg",
-          filetype: 'image',
-          filename: 'AAAa' + i + '.png',
-          uploaded: 1469007145+i,
-        }
-      }
-      MOCK_DEVICES = [
-      ]
-      MOCK_NODE_ASSETS = {
-        "default-font.ttf": {
-          id: "default-font.ttf",
-          thumb: 'package.png',
-          filetype: 'font',
-          filename: 'default-font.ttf',
-        },
-        "package.png": {
-          id: "package.png",
-          thumb: 'package.png',
-          filetype: 'image',
-          filename: 'package.png',
-        },
-        "empty.png": {
-          id: "empty.png",
-          thumb: 'empty.png',
-          filetype: 'image',
-          filename: 'empty.png',
-        },
-        "flat.png": {
-          id: "flat.png",
-          thumb: 'flat.png',
-          filetype: 'image',
-          filename: 'flat.png',
-        },
-        "time.png": {
-          id: "time.png",
-          thumb: 'time.png',
-          filetype: 'image',
-          filename: 'time.png',
-        },
-        "stream.png": {
-          id: "stream.png",
-          thumb: 'stream.png',
-          filetype: 'image',
-          filename: 'stream.png',
-        },
-        "mute.mp4": {
-          id: "mute.mp4",
-          thumb: 'package.png',
-          filetype: 'video',
-          filename: 'mute.mp4',
-        },
-        "twitter": {
-          id: "twitter",
-          thumb: 'twitter/package.png',
-          filetype: 'child',
-          filename: 'twitter',
-        },
-        "scroller": {
-          id: "scroller",
-          thumb: 'package.png',
-          filetype: 'child',
-          filename: 'scroller',
-        },
-        "browser": {
-          id: "browser",
-          thumb: 'package.png',
-          filetype: 'child',
-          filename: 'browser',
-        },
-      }
-      MOCK_ASSET_CHOOSER_RESPONSE = {
-        id: 1,
-        duration: 10,
-      }
-      MOCK_CONFIG = {
-        timezone: "Europe/Berlin",
-        rotation: 180,
-        resolution: [1920, 1080],
-        fallback: "package.png",
-        music: "mute.mp4",
-        scratch: {
-          debug_page_id: 0,
-          debug_schedule_id: 0,
-        },
-        layouts: [],
-        schedules: [{
-          name: "Example Schedule",
-          scheduling: {
-            hours: [],
-            mode: 'span',
-            spans: [{
-              days: [true, false, true, false, true, false, true],
-              starts: '01:23',
-              ends: '23:45',
-            }]
-          },
-          pages: [{
-            duration: 18,
-            auto_duration: 10,
-            layout_id: -1,
-            tiles: [{
-              type: "image",
-              asset: 1,
-              config: {},
-              x1: 100, y1: 100, x2: 800, y2: 400,
-            }, {
-              type: "time",
-              asset: "time.png",
-              config: {},
-              x1: 600, y1: 400, x2: 800, y2: 600,
-            }, {
-              type: "video",
-              asset: "mute.mp4",
-              config: {},
-              x1: 300, y1: 200, x2: 600, y2: 350,
-            }, {
-              type: "markup",
-              asset: "default-font.ttf",
-              config: {},
-              x1: 800, y1: 600, x2: 1300, y2: 900,
-            }],
-          }, {
-            duration: 5,
-            auto_duration: 5,
-            schedule: {
-              hours: [],
-            },
-            tiles: [],
-          }]
-        }, {
-          name: "Another Schedule",
-          scheduling: {
-            hours: [],
-          },
-          pages: []
-        }]
-      }
-    </script>
-    <script src="hosted.js"></script>
-    <script src="vue.js"></script>
-    <script src="vuex.js"></script>
-    <script src="Sortable.js"></script>
-    <script src="interact.min.js"></script>
-    <script src="moment.min.js"></script>
-    <script src="vuedraggable.min.js"></script>
-    <script src="timezones.js"></script>
-    <script src="config.js"></script>
-  </body>
+<script>
+  MOCK_ASSETS = {
+  1: {
+  id: 1,
+  thumb: "no-content-info-beamer.jpg",
+  filetype: 'image',
+  filename: 'zzzz lfkjekljf lkwjfkl wj efklwj lfkwjfl jwklfjwel kfjwlkfw jflk wjf.png',
+  uploaded: 1469707145,
+  typeclass: 'glyphicon-picture',
+  metadata: {
+  width: 1280,
+  height: 720,
+  },
+  uploaded: 1234,
+  },
+  2: {
+  id: 2,
+  thumb: "package.png",
+  filetype: 'video',
+  filename: 'AAAz.mp4',
+  uploaded: 1469007145,
+  metadata: {
+  duration: 12.34,
+  width: 1280,
+  height: 720,
+  },
+  }
+  }
+  for (var i = 0; i < 10; i++) {
+		      MOCK_ASSETS[i+3] = {
+		      id: i+2,
+		      thumb: "screenshot.jpg",
+		      filetype: 'image',
+		      filename: 'AAAa' + i + '.png',
+		      uploaded: 1469007145+i,
+		      }
+		      }
+		      MOCK_DEVICES = [
+		      ]
+		      MOCK_NODE_ASSETS = {
+		      "default-font.ttf": {
+		      id: "default-font.ttf",
+		      thumb: 'package.png',
+		      filetype: 'font',
+		      filename: 'default-font.ttf',
+		      },
+		      "package.png": {
+		      id: "package.png",
+		      thumb: 'package.png',
+		      filetype: 'image',
+		      filename: 'package.png',
+		      },
+		      "empty.png": {
+		      id: "empty.png",
+		      thumb: 'empty.png',
+		      filetype: 'image',
+		      filename: 'empty.png',
+		      },
+		      "flat.png": {
+		      id: "flat.png",
+		      thumb: 'flat.png',
+		      filetype: 'image',
+		      filename: 'flat.png',
+		      },
+		      "time.png": {
+		      id: "time.png",
+		      thumb: 'time.png',
+		      filetype: 'image',
+		      filename: 'time.png',
+		      },
+		      "stream.png": {
+		      id: "stream.png",
+		      thumb: 'stream.png',
+		      filetype: 'image',
+		      filename: 'stream.png',
+		      },
+		      "mute.mp4": {
+		      id: "mute.mp4",
+		      thumb: 'package.png',
+		      filetype: 'video',
+		      filename: 'mute.mp4',
+		      },
+		      "twitter": {
+		      id: "twitter",
+		      thumb: 'twitter/package.png',
+		      filetype: 'child',
+		      filename: 'twitter',
+		      },
+		      "scroller": {
+		      id: "scroller",
+		      thumb: 'package.png',
+		      filetype: 'child',
+		      filename: 'scroller',
+		      },
+		      "browser": {
+		      id: "browser",
+		      thumb: 'package.png',
+		      filetype: 'child',
+		      filename: 'browser',
+		      },
+		      }
+		      MOCK_ASSET_CHOOSER_RESPONSE = {
+		      id: 1,
+		      duration: 10,
+		      }
+		      MOCK_CONFIG = {
+		      timezone: "Europe/Berlin",
+		      rotation: 180,
+		      resolution: [1920, 1080],
+		      fallback: "package.png",
+		      music: "mute.mp4",
+		      scratch: {
+		      debug_page_id: 0,
+		      debug_schedule_id: 0,
+		      },
+		      layouts: [],
+		      schedules: [{
+		      name: "Example Schedule",
+		      scheduling: {
+		      hours: [],
+		      mode: 'span',
+		      spans: [{
+		      days: [true, false, true, false, true, false, true],
+		      starts: '01:23',
+		      ends: '23:45',
+		      }]
+		      },
+		      pages: [{
+		      duration: 18,
+		      auto_duration: 10,
+		      layout_id: -1,
+		      tiles: [{
+		      type: "image",
+		      asset: 1,
+		      config: {},
+		      x1: 100, y1: 100, x2: 800, y2: 400,
+		      }, {
+		      type: "time",
+		      asset: "time.png",
+		      config: {},
+		      x1: 600, y1: 400, x2: 800, y2: 600,
+		      }, {
+		      type: "video",
+		      asset: "mute.mp4",
+		      config: {},
+		      x1: 300, y1: 200, x2: 600, y2: 350,
+		      }, {
+		      type: "markup",
+		      asset: "default-font.ttf",
+		      config: {},
+		      x1: 800, y1: 600, x2: 1300, y2: 900,
+		      }],
+		      }, {
+		      duration: 5,
+		      auto_duration: 5,
+		      schedule: {
+		      hours: [],
+		      },
+		      tiles: [],
+		      }]
+		      }, {
+		      name: "Another Schedule",
+		      scheduling: {
+		      hours: [],
+		      },
+		      pages: []
+		      }]
+		      }
+		      </script>
+<script src="hosted.js"></script>
+<script src="vue.js"></script>
+<script src="vuex.js"></script>
+<script src="Sortable.js"></script>
+<script src="interact.min.js"></script>
+<script src="moment.min.js"></script>
+<script src="vuedraggable.min.js"></script>
+<script src="timezones.js"></script>
+<script src="config.js"></script>
+</body>
 </html>

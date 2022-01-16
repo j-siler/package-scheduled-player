@@ -29,6 +29,16 @@
         "hint": "Use for testing. Leave empty to use current time",
         "default": ""
     }, {
+        "title": "24 Hour or AM/PM",
+        "ui_width": 4,
+        "name": "timeformat",
+        "type": "select",
+        "options": [
+            [false, "24 Hour"],
+            [true, "AM/PM"]
+        ],
+        "default": 0
+    }, {
         "title": "Rotation",
         "ui_width": 4,
         "name": "rotation",
