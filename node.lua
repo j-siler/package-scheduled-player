@@ -1048,21 +1048,22 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
         end
 
         if clock_type == "hms" then
-            fmt = "%02d:%02d:%02d"
+            fmt = "%d:%02d:%02d"
         else
-            fmt = "%02d:%02d"
+            fmt = "%d:%02d"
         end
 
         return function(starts, ends)
             for now in helper.frame_between(starts, ends) do
                 local t = clock.since_midnight()
-                local time = string.format(fmt,
-                    math.floor(t / 3600),
-                    math.floor(t % 3600 / 60),
-                    math.floor(t % 60)
-                )
-
-                local w = font:width(time, size)
+                local hour=math.floor(t / 3600)             
+                local ampmhour=hour%12                      
+                if hour==0 then ampmhour=12 end             
+                local minute=math.floor(t % 3600 / 60)      
+                local second=math.floor(t %60)              
+                local time = string.format(fmt, ampmhour, minute, second)
+                if(hour<12) then time = time .. "AM"; else time = time .. "PM"; end
+                local w = font:width(time, size)                         
 
                 local x
                 if clock_align == "left" then
