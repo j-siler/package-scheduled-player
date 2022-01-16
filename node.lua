@@ -1094,86 +1094,87 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
 	       font:write(x, y1, time, size, r,g,b,1)
 	    end
 	 end
-	 elseif clock_mode == "analog_clock" then
-	    local cx = x1 + (x2 - x1)/2
-	    local cy = y1 + (y2 - y1)/2
-	    local size = math.min(y2-y1, x2-x1)
-	    local radius = size/2
-	    local unit = size/30
-	    
-	    local hand_img
-	    
-	    if clock_style == 1 then 
-	       hand_img = resource.load_image{
-		  file = "hand-1.png",
-		  mipmap = true,
-	       }
-	    else
-	       hand_img = resource.load_image{
-		  file = "hand-2.png",
-		  mipmap = true,
-	       }
-	    end
+      end
+   elseif clock_mode == "analog_clock" then
+      local cx = x1 + (x2 - x1)/2
+      local cy = y1 + (y2 - y1)/2
+      local size = math.min(y2-y1, x2-x1)
+      local radius = size/2
+      local unit = size/30
+      
+      local hand_img
+      
+      if clock_style == 1 then 
+	 hand_img = resource.load_image{
+	    file = "hand-1.png",
+	    mipmap = true,
+	 }
+      else
+	 hand_img = resource.load_image{
+	    file = "hand-2.png",
+	    mipmap = true,
+	 }
+      end
 
-	    local show_seconds = clock_type == "hms"
+      local show_seconds = clock_type == "hms"
 
-	    -- local function dots()
-	    --     gl.pushMatrix()
-	    --         gl.rotate(90, 0, 0, 1)
-	    --         for i = 0, 55,5 do
-	    --             if i % 15 == 0 then
-	    --                 pixel:draw(radius-unit, -unit/2, radius, unit/2, 0.8)
-	    --             else 
-	    --                 pixel:draw(radius-unit/2, -unit/4, radius, unit/4, 0.8)
-	    --             end
-	    --             gl.rotate(360/60*5, 0, 0, 1)
-	    --         end
-	    --     gl.popMatrix()
-	    -- end
+      -- local function dots()
+      --     gl.pushMatrix()
+      --         gl.rotate(90, 0, 0, 1)
+      --         for i = 0, 55,5 do
+      --             if i % 15 == 0 then
+      --                 pixel:draw(radius-unit, -unit/2, radius, unit/2, 0.8)
+      --             else 
+      --                 pixel:draw(radius-unit/2, -unit/4, radius, unit/4, 0.8)
+      --             end
+      --             gl.rotate(360/60*5, 0, 0, 1)
+      --         end
+      --     gl.popMatrix()
+      -- end
 
-	    local function hand(len, thick, angle)
-	       gl.pushMatrix()
-	       gl.rotate(angle*360-90, 0, 0, 1)
-	       hand_img:draw(-len*0.1, -thick/2, len*0.9, thick/2)
-	       gl.popMatrix()
-	    end
+      local function hand(len, thick, angle)
+	 gl.pushMatrix()
+	 gl.rotate(angle*360-90, 0, 0, 1)
+	 hand_img:draw(-len*0.1, -thick/2, len*0.9, thick/2)
+	 gl.popMatrix()
+      end
 
-	    local function movement(val)
-	       if clock_movement == "dynamic" then
-		  return math.floor(val) + math.sin(((val%1)-0.5) * math.pi)/2 + .5
-	       elseif clock_movement == "smooth" then
-		  return val
-	       else
-		  return math.floor(val)
-	       end
-	    end
-
-	    return function(starts, ends)
-	       for now in helper.frame_between(starts, ends) do
-		  local t = clock.since_midnight()
-
-		  colored:use{
-		     color = {r,g,b,1}
-		  }
-		  gl.pushMatrix()
-		  gl.translate(cx, cy)
-
-		  local hour = movement((t / 3600) % 12)
-		  hand(radius-7*unit, unit, hour/12)
-
-		  local minute = movement(t % 3600 / 60)
-		  hand(radius-3*unit, unit*0.75, minute/60)
-
-		  if show_seconds then
-		     local second = movement(t % 60)
-		     hand(radius, unit*0.5, second/60)
-		  end
-		  gl.popMatrix()
-		  colored:deactivate()
-	       end
-	       hand_img:dispose()
-	    end
+      local function movement(val)
+	 if clock_movement == "dynamic" then
+	    return math.floor(val) + math.sin(((val%1)-0.5) * math.pi)/2 + .5
+	 elseif clock_movement == "smooth" then
+	    return val
+	 else
+	    return math.floor(val)
 	 end
+      end
+
+      return function(starts, ends)
+	 for now in helper.frame_between(starts, ends) do
+	    local t = clock.since_midnight()
+
+	    colored:use{
+	       color = {r,g,b,1}
+	    }
+	    gl.pushMatrix()
+	    gl.translate(cx, cy)
+
+	    local hour = movement((t / 3600) % 12)
+	    hand(radius-7*unit, unit, hour/12)
+
+	    local minute = movement(t % 3600 / 60)
+	    hand(radius-3*unit, unit*0.75, minute/60)
+
+	    if show_seconds then
+	       local second = movement(t % 60)
+	       hand(radius, unit*0.5, second/60)
+	    end
+	    gl.popMatrix()
+	    colored:deactivate()
+	 end
+	 hand_img:dispose()
+      end
+   end
 end
 
 local function MarkupTile(asset, config, x1, y1, x2, y2)
