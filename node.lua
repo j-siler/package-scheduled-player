@@ -1078,9 +1078,9 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
 	    local w = font:width(time, size)
 
 	    local x
-	    if clock_align == "left" then
+	    if clock_align == "right" then
 	       x = x1
-	    elseif clock_align == "right" then
+	    elseif clock_align == "left" then
 	       x = x2 - w
 	    elseif clock_align == "center" then
 	       x = x1 + (x2-x1)/2 - w/2
