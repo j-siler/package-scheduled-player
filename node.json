@@ -37,7 +37,8 @@
             [false, "24 Hour"],
             [true, "AM/PM"]
         ],
-        "default": 0
+        "default": true
+
     }, {
         "title": "Rotation",
         "ui_width": 4,
