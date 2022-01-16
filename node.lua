@@ -1073,7 +1073,7 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
 		  ampm="AM"
 	       else
 		  ampm="PM"
-		  hour == hour % 12
+		  hour = hour % 12
 		  if hour == 0 then
 		     hour = 12
 		  end
