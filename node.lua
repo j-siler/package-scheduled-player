@@ -1038,7 +1038,7 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
    local clock_movement = config.movement or "dynamic"
 
    if clock_mode == "digital_clock" then
-      local ampm = true
+      local ampm = false
       local ampmtxt=""
       
       local size = y2 - y1
