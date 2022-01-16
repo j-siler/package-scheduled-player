@@ -1028,6 +1028,7 @@ local function CountdownTile(asset, config, x1, y1, x2, y2)
 end
 
 local function TimeTile(asset, config, x1, y1, x2, y2)
+   log("Entering TimeTile", "x1=%d y1=%d x2=%d y2=%d", x1, y1, x2, y2)
    local r, g, b = helper.parse_rgb(config.color or "#333333")
    local clock = clock_for_tz_or_default(json_nullify(config.timezone))
 
