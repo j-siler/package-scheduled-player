@@ -1058,6 +1058,7 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
       end
 
       return function(starts, ends)
+	 log("TimeTime", "Entering \"return function(starts, ends)\"")
 	 for now in helper.frame_between(starts, ends) do
 	    local t = clock.since_midnight()
 	    local hour   = math.floor(t / 3600)
