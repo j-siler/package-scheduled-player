@@ -1061,7 +1061,7 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
 	    local t = clock.since_midnight()
 	    local hour   = math.floor(t / 3600)
 	    local minute = math.floor((t % 3600) / 60)
-	    local second = math.floor(t % 3600)
+	    local second = math.floor(t % 60)
 	    if ampm == true then
 	       if hour < 12 then
 		  ampmtxt="AM"
