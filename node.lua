@@ -1059,14 +1059,21 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
 
       local prevtime
       local failures = 0
+      local successes = 0
       return function(starts, ends)
 	 log("TimeTile", "return function(starts, ends)\" starts=%d, ends=%d", starts, ends)
 	 log("TimeTile", "Entering for loop")
 	 for now in helper.frame_between(starts, ends) do
 	    local t = clock.since_midnight()
 	    if t ~= prevtime then
-	       log("TimeTile", "In for loop after elapsed time test succeded")
 	       prevtime = t
+	       successes = successes + 1
+	       failures = 0
+	       if successeses == 1 then
+		  log("TimeTile", "In for loop after elapsed time test succeededed %d time", failures)
+	       else
+
+	       log("TimeTile", "In for loop after elapsed time test succeded")
 	       failures=0
 	       local hour   = math.floor(t / 3600)
 	       local minute = math.floor((t % 3600) / 60)
@@ -1102,10 +1109,11 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
 	       font:write(x, y1, time, size, r,g,b,1)
 	    else
 	       failures = failures + 1
+	       successes = 0
 	       if failures == 1 then
 		  log("TimeTile", "In for loop after elapsed time test failed %d time", failures)
 	       else
-		  log("TimeTile", "In for loop after elapsed time test failed %d time", failures)
+		  log("TimeTile", "In for loop after elapsed time test failed %d times", failures)
 	       end
 	    end
 	 end
