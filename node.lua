@@ -1057,42 +1057,47 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
 	 fmt = "%02d:%02d"
       end
 
+      local prevtime;
       return function(starts, ends)
-	 log("TimeTime", "Entering \"return function(starts, ends)\" starts=%d, ends=%d", starts, ends)
+	 log("TimeTile", "return function(starts, ends)\" starts=%d, ends=%d", starts, ends)
 	 for now in helper.frame_between(starts, ends) do
+	    log("TimeTile", "Time=%d", t)
 	    local t = clock.since_midnight()
-	    local hour   = math.floor(t / 3600)
-	    local minute = math.floor((t % 3600) / 60)
-	    local second = math.floor(t % 60)
-	    if ampm == true then
-	       if hour < 12 then
-		  ampmtxt="AM"
-	       else
-		  ampmtxt="PM"
+	    if not t==prevtime then
+	       prevtime = t
+	       local hour   = math.floor(t / 3600)
+	       local minute = math.floor((t % 3600) / 60)
+	       local second = math.floor(t % 60)
+	       if ampm == true then
+		  if hour < 12 then
+		     ampmtxt="AM"
+		  else
+		     ampmtxt="PM"
+		  end
+		  if hour == 0 then
+		     hour=12
+		  end
 	       end
-	       if hour == 0 then
-		  hour=12
+	       
+	       local time = string.format(fmt, hour, minute, second) .. ampmtxt
+	       
+	       local w = font:width(time, size)
+	       
+	       local x
+	       if clock_align == "right" then
+		  x = x1
+	       elseif clock_align == "left" then
+		  x = x2 - w
+	       elseif clock_align == "center" then
+		  x = x1 + (x2-x1)/2 - w/2
 	       end
+	       ---[[
+	       log("TimeTile",
+		   "About to write %s at x=%d, y1=%d, width=%d, r=%f, g=%f, b=%f",
+		   time, x, y1, size, r, g, b)
+	       --]]
+	       font:write(x, y1, time, size, r,g,b,1)
 	    end
-      
-	    local time = string.format(fmt, hour, minute, second) .. ampmtxt
-	    
-	    local w = font:width(time, size)
-
-	    local x
-	    if clock_align == "right" then
-	       x = x1
-	    elseif clock_align == "left" then
-	       x = x2 - w
-	    elseif clock_align == "center" then
-	       x = x1 + (x2-x1)/2 - w/2
-	    end
-	    ---[[
-	    log("TimeTile",
-		"About to write %s at x=%d, y1=%d, width=%d, r=%f, g=%f, b=%f",
-		time, x, y1, size, r, g, b)
-	    --]]
-	    font:write(x, y1, time, size, r,g,b,1)
 	 end
       end
    elseif clock_mode == "analog_clock" then
