@@ -1099,7 +1099,6 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
 		   time, x, y1, size, r, g, b)
 	       --]]
 	       font:write(x, y1, time, size, r,g,b,1)
-	    end
 	    else
 	       log("TimeTile", "In for loop after elapsed time test failed")
 	 end
