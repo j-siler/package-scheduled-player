@@ -1062,9 +1062,8 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
 	 log("TimeTile", "return function(starts, ends)\" starts=%d, ends=%d", starts, ends)
 	 for now in helper.frame_between(starts, ends) do
 	    log("TimeTile", "Entered for loop")
-	    --log("TimeTile", "Time=%d", t)
 	    local t = clock.since_midnight()
-	    if not t==prevtime then
+	    if true or not t==prevtime then
 	       log("TimeTile", "In for loop after elapsed time test succeded")
 	       prevtime = t
 	       local hour   = math.floor(t / 3600)
