@@ -1064,6 +1064,14 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
 	    log("TimeTile", "In for loop")
 	    log("TimeTile", "In for loop, starts=%d, ends=%d, t=%d, prevtime=%d",
 		starts, ends, t, prevtime)
+	    -- log("TimeTile", "In for loop, starts=%d, ends=%d, t=%d, prevtime=%d",
+	    -- 	starts, ends, t, prevtime)
+	    log("TimeTile", "In for loop, starts=%d, ends=%d",-- t=%d, prevtime=%d",
+		starts,
+		ends,
+		--t,
+		--prevtime
+	    )
 	    t = clock.since_midnight()
 	    if(t ~= prevtime)
 	    then
