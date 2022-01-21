@@ -1063,9 +1063,7 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
       end
 
       local prevtime
-      local failures
       failures = 0
-      local successes
       successes = 0
       return function(starts, ends)
 	 log("TimeTile", "return function(starts, ends)\" starts=%d, ends=%d", starts, ends)
@@ -1081,7 +1079,7 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
 	       failures = 0
 	       log("TimeTile", "In for loop line %d", 1074)
 	       if successes == 1 then
-		  log("TimeTile", "In for loop after elapsed time test succeededed %d time", successes)
+		  log("TimeTile", "In for loop after elapsed time test succeeded %d time", successes)
 	       else
 		  log("TimeTile", "In for loop after elapsed time test succeeded %d times", successes)
 	       end
