@@ -526,19 +526,6 @@ Vue.component('config-ui', {
         });
       }
     },
-    background_xyzzy: {
-      get() {
-        return this.background[3] == 0;
-      },
-      set(val) {
-        var background = this.background;
-        console.log(background);
-        background[3] = val ? 0 : 1;
-        this.$store.commit('config_update', {
-          key: 'background', value: background,
-        });
-      }
-    },
     background_rgb: {
       get() {
         return color_ib_to_rgb(this.background);
