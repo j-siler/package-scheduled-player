@@ -1058,18 +1058,21 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
       end
 
       local prevtime
-      local failures = 0
-      local successes = 0
+      local failures
+      failures = 0
+      local successes
+      successes = 0
       return function(starts, ends)
 	 log("TimeTile", "return function(starts, ends)\" starts=%d, ends=%d", starts, ends)
 	 log("TimeTile", "Entering for loop")
 	 for now in helper.frame_between(starts, ends) do
 	    log("TimeTile", "In for loop line %d", 1067)
 	    local t = clock.since_midnight()
-	    if true or math.floor(t) ~= prevtime then
+	    -- if math.floor(t) ~= prevtime then
+	    if t ~= prevtime then
 	       successes = successes + 1
 	       log("TimeTile", "In for loop line %d", 1070)
-	       prevtime = math.floor(t)
+	       prevtime = t
 	       failures = 0
 	       log("TimeTile", "In for loop line %d", 1074)
 	       if successes == 1 then
