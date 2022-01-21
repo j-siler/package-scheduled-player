@@ -1075,7 +1075,7 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
 	    end
 	    log("TimeTile", "Line 1076, fmt=%s", fmt)
 	    local time = string.format(fmt, localhour, min, sec)
-	    log("TimeTile", "Line 1074")
+	    log("TimeTile", "Line 1078")
 	    if ampm then
 	       if hour < 12 then
 		  time = time + "AM"
