@@ -1078,9 +1078,10 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
 	    log("TimeTile", "Line 1078")
 	    if ampm then
 	       if hour < 12 then
-		  time = time + "AM"
+		  log("TimeTile", "Line 1082")
+		  time = time .. "AM"
 	       else
-		  time = time + "PM"
+		  time = time .. "PM"
 	       end
 	    end
 	    local w = font:width(time, size)
