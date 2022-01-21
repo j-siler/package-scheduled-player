@@ -1067,7 +1067,7 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
 	    log("TimeTile", "In for loop line %d", 1067)
 	    local t = clock.since_midnight()
 	    if math.floor(t) ~= prevtime then
-	       succeeded = succeeded + 1
+	       successes = successes + 1
 	       log("TimeTile", "In for loop line %d", 1070)
 	       prevtime = math.floor(t)
 	       successes = successes + 1
