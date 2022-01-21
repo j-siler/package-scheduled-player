@@ -1071,6 +1071,7 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
 	    )
 	    if(t ~= prevtime)
 	    then
+	       log("TimeTile", "t ~= prevtime, t=%d, prevtime=%d", t, prevtime)
 	       prevtime=t
 	       local time = string.format(fmt,
 					  math.floor(t / 3600),
@@ -1094,6 +1095,7 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
 	       font:write(x, y1, time, size, r,g,b,1)
 	       loopcount = 0;
 	    else
+	       log("TimeTile", "t == prevtime, t=%d, prevtime=%d", t, prevtime)
 	       loopcount = loopcount + 1
 	       log("TimeTile", "Same time.  Count=%d", loopcount)
 	    end
