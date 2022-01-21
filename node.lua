@@ -1091,8 +1091,8 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
 		  x = x1 + (x2-x1)/2 - w/2
 	       end
 	       log("TimeTile",
-		   "About to write(x=%d, y1=%d, time=\"%s\", size=%d, r=%f, g=%f, b=%f, 1",
-		   x, y1, time, size, r, g, b)
+		   "About to write(x=%d, y1=%d, time=\"%s\", size=%d, r=%f, g=%f, b=%f, 1, width=%d",
+		   x, y1, time, size, r, g, b, w)
 	       font:write(x, y1, time, size, r,g,b,1)
 	       loopcount = 0;
 	    else
