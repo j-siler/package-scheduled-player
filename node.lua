@@ -1076,7 +1076,7 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
 	       --if successeses == 1 then
 		  log("TimeTile", "In for loop after elapsed time test succeededed %d time", failures)
 	       --else
-		  log("TimeTile", "In for loop after elapsed time test succeded")
+		  log("TimeTile", "In for loop after elapsed time test succeeded %d times")
 	       --end
 	       log("TimeTile", "In for loop line %d", 1080)
 	       failures=0
