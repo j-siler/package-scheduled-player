@@ -1070,8 +1070,7 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
 	 log("TimeTile", "Entering for loop")
 	 for now in helper.frame_between(starts, ends) do
 	    log("TimeTile", "In for loop line %d", 1067)
-	    local t = clock.since_midnight()
-	    -- if math.floor(t) ~= prevtime then
+	    local t = math.floor(clock.since_midnight())
 	    if t ~= prevtime then
 	       successes = successes + 1
 	       log("TimeTile", "In for loop line %d", 1070)
