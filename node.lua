@@ -1071,12 +1071,13 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
 	       prevtime = math.floor(t)
 	       successes = successes + 1
 	       failures = 0
-	       log("TimeTile", "In for loop line %d", 10704)
+	       log("TimeTile", "In for loop line %d", 1074)
 	       if successeses == 1 then
 		  log("TimeTile", "In for loop after elapsed time test succeededed %d time", failures)
 	       else
 		  log("TimeTile", "In for loop after elapsed time test succeded")
 	       end
+	       log("TimeTile", "In for loop line %d", 1080)
 	       failures=0
 	       local hour   = math.floor(t / 3600)
 	       local minute = math.floor((t % 3600) / 60)
