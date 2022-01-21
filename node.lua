@@ -11,7 +11,6 @@ local loader = require "loader"
 local helper = require "helper"
 local placement = require "placement"
 local easing = require "easing"
-local debug = require "debug"
 local min, max, abs, floor, ceil = math.min, math.max, math.abs, math.floor, math.ceil
 
 local font_regl = resource.load_font "default-font.ttf"
@@ -1058,6 +1057,7 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
       return function(starts, ends)
 	 for now in helper.frame_between(starts, ends) do
 	    --log("TimeTile", "Line=%d", debug.getinfo(1).currentline)
+	    log("TimeTile". "Entered function(starts, ends)")
 	    local t = clock.since_midnight()
 	    local hour = math.floor(t / 3600)
 	    local min  = math.floor(t % 3600 / 60)
