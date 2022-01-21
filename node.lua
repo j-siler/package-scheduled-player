@@ -1069,7 +1069,7 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
 		,math.floor(t)
 		,prevtime
 	    )
-	    if math.floot(t) ~= math.floor(prevtime)
+	    if t ~= prevtime
 	    
 	    then
 	       log("TimeTile", "t ~= prevtime, t=%d, prevtime=%d", t, prevtime)
