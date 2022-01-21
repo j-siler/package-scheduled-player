@@ -1056,29 +1056,21 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
 
       return function(starts, ends)
 	 for now in helper.frame_between(starts, ends) do
-	    log("TimeTile", "Entered function(starts, ends)")
 	    local t = clock.since_midnight()
 	    local hour = math.floor(t / 3600)
 	    local min  = math.floor(t % 3600 / 60)
 	    local sec  = math.floor(t % 60)
 	    local localhour = hour
 	    if ampm then
-	       log("TimeTile", "Line 1066")
 	       if hour == 0 then
-		  log("TimeTile", "Line 1068")
 		  localhour = 12
-		  log("TimeTile", "Line 1070")
 	       elseif hour > 12 then
-		  log("TimeTile", "Line 1072")
 		  localhour = localhour - 12
 	       end
 	    end
-	    log("TimeTile", "Line 1076, fmt=%s", fmt)
 	    local time = string.format(fmt, localhour, min, sec)
-	    log("TimeTile", "Line 1078")
 	    if ampm then
 	       if hour < 12 then
-		  log("TimeTile", "Line 1082")
 		  time = time .. "AM"
 	       else
 		  time = time .. "PM"
