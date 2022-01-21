@@ -1059,7 +1059,7 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
 	 for now in helper.frame_between(starts, ends) do
 	    local t = clock.since_midnight()
 	    local hour = math.floor(t / 3600)
-	    local min  = math.floor(t % 3600 / 60))
+	    local min  = math.floor(t % 3600 / 60)
 	    local sec  = math.floor(t % 60)
 	    local localhour = hour
 	    if ampm then
