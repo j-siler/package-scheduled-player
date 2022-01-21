@@ -1041,7 +1041,8 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
    if clock_mode == "digital_clock" then
       local failures, successes = 0, 0
       log("TimeTile", "digital clock: failures=%d, successes=%d", failures, successes)
-      local t, prevtime
+      local t=0
+      local prevtime
       local size = y2 - y1
       local font, fmt
 
