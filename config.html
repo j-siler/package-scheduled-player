@@ -349,8 +349,12 @@
       :values="timezones"
       @onSelected="onSetConfigValue('timezone', $event)">
     </select-dropdown>
-    </div>
-
+    (transparent
+     <input
+     type='checkbox'
+     v-model="background_a">)
+      </div>
+    
     <div class='col-xs-5'>
     <label class='field-label'>Simulate Time</label><br/>
     <input class="form-control" type="text" placeholder="DD.MM.YYYY HH:MM" v-model="time"/>
