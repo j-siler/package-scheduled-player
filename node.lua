@@ -1057,7 +1057,7 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
 
       return function(starts, ends)
 	 for now in helper.frame_between(starts, ends) do
-	    //log("TimeTile", "Line=%d", debug.getinfo(1).currentline)
+	    --log("TimeTile", "Line=%d", debug.getinfo(1).currentline)
 	    local t = clock.since_midnight()
 	    local hour = math.floor(t / 3600)
 	    local min  = math.floor(t % 3600 / 60)
