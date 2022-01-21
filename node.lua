@@ -1062,12 +1062,15 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
 	    local min  = math.floor(t % 3600 / 60)
 	    local sec  = math.floor(t % 60)
 	    local localhour = hour
-	    log("TimeTile", "Line 1065, fmt=%s", fmt)
 	    if ampm then
+	       log("TimeTile", "Line 1066")
 	       if hour == 0 then
+		  log("TimeTile", "Line 1068")
 		  localhour = 12
+		  log("TimeTile", "Line 1070")
 	       elseif hour > 12 then
-		  localhout = localhour - 12
+		  log("TimeTile", "Line 1072")
+		  localhour = localhour - 12
 	       end
 	    end
 	    log("TimeTile", "Line 1072, fmt=%s", "XYZZY")
