@@ -1057,31 +1057,40 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
 	 fmt = "%02d:%02d"
       end
 
+      local loopcount=0
       return function(starts, ends)
 	 log("TimeTile", "function(starts, ends), starts=%d, ends=%d", starts, ends)
 	 for now in helper.frame_between(starts, ends) do
 	    log("TimeTile", "In for loop, starts=%d, ends=%d", starts, ends)
 	    t = clock.since_midnight()
-	    local time = string.format(fmt,
-				       math.floor(t / 3600),
-				       math.floor(t % 3600 / 60),
-				       math.floor(t % 60)
-	    )
-
-	    local w = font:width(time, size)
-
-	    local x
-	    if clock_align == "left" then
-	       x = x1
-	    elseif clock_align == "right" then
-	       x = x2 - w
-	    elseif clock_align == "center" then
-	       x = x1 + (x2-x1)/2 - w/2
+	    if(t ~= prevtime)
+	    then
+	       prevtime=t
+	       local time = string.format(fmt,
+					  math.floor(t / 3600),
+					  math.floor(t % 3600 / 60),
+					  math.floor(t % 60)
+	       )
+	       
+	       local w = font:width(time, size)
+	       
+	       local x
+	       if clock_align == "left" then
+		  x = x1
+	       elseif clock_align == "right" then
+		  x = x2 - w
+	       elseif clock_align == "center" then
+		  x = x1 + (x2-x1)/2 - w/2
+	       end
+	       log("TimeTile",
+		   "About to write(x=%d, y1=%d, time=\"%s\", size=%d, r=%f, g=%f, b=%f, 1",
+		   x, y1, time, size, r, g, b)
+	       font:write(x, y1, time, size, r,g,b,1)
+	       loopcount = 0;
+	    else
+	       loopcount = loopcount + 1
+	       log("TimeTile", "Same time.  Count=%d", loopcount)
 	    end
-	    log("TimeTile",
-		"About to write(x=%d, y1=%d, time=\"%s\", size=%d, r=%f, g=%f, b=%f, 1",
-		x, y1, time, size, r, g, b)
-	    font:write(x, y1, time, size, r,g,b,1)
 	 end
       end
    elseif clock_mode == "analog_clock" then
