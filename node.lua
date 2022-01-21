@@ -1042,7 +1042,7 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
       local failures, successes = 0, 0
       log("TimeTile", "digital clock: failures=%d, successes=%d", failures, successes)
       local t=0
-      local prevtime
+      local prevtime=-1
       local size = y2 - y1
       local font, fmt
 
@@ -1062,7 +1062,6 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
       return function(starts, ends)
 	 log("TimeTile", "function(starts, ends), starts=%d, ends=%d", starts, ends)
 	 for now in helper.frame_between(starts, ends) do
-	    t = clock.since_midnight()
 	    log("TimeTile", "In for loop (1)")
 	    log("TimeTile", "In for loop (2) starts=%d, ends=%d, t=%d", --prevtime=%d",
 		starts
@@ -1070,6 +1069,7 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
 		,math.floor(t)
 		--,prevtime
 	    )
+	    t = clock.since_midnight()
 	    if(t ~= prevtime)
 	    then
 	       prevtime=t
