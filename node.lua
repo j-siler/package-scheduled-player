@@ -1037,8 +1037,13 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
    local clock_style = config.style or 1
    local clock_align = config.align or "center"
    local clock_movement = config.movement or "dynamic"
+   local failures
+   local successes
 
    if clock_mode == "digital_clock" then
+      failures = 0
+      successes = 0
+      log("TimeTile", "digital clock: failures=%d, successes=%d", failures, successes)
       local ampm = false
       local ampmtxt=""
       
