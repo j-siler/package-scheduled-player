@@ -473,6 +473,14 @@ Vue.component('config-ui', {
     timezones() {
       return TIMEZONES;
     },
+    time_fmt: {
+      get() {
+        return this.config.time_fmt;
+      },
+      set(value) {
+        this.$store.dispatch('set_option', {key: 'time_fmt', value: value});
+      },
+    },
     config() {
       return this.$store.state.config;
     },
