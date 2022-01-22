@@ -2,6 +2,8 @@ gl.setup(NATIVE_WIDTH, NATIVE_HEIGHT)
 
 node.alias "*" -- catch all communication
 
+local node_config = {}
+
 util.no_globals()
 
 math.randomseed(os.time())
@@ -2054,6 +2056,10 @@ util.data_mapper{
    end,
    ["sys/cec/key"] = scheduler.handle_cec,
 }
+
+util.file_watch("config.json", function(raw)
+    node_config = json.decode(raw)
+end)
 
 function node.render()
    streams.tick()
