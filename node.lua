@@ -1032,8 +1032,7 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
    local dummyvar="TimeTile says Howdy!"
    local altval={"TimeTile", 1, 2, 1.2}
    print("TimeTile")
-   print(altval)
-   print (asset) 
+   print(config)
    log("TimeTile", "Entered function TimeTile")
    -- if node_config.timne_fmt ~= nil then
    --    log("TimeTile", "time_fmt=%s", node_config.time_fmt)
