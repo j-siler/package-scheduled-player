@@ -1028,11 +1028,11 @@ end
 
 local function TimeTile(asset, config, x1, y1, x2, y2)
    log("TimeTile", "Entered finction TimeTile")
-   if node_config.timne_fmt ~= nil then
-      log("TimeTile", "time_fmt=%s", node_config.time_fmt)
-   else
-      log("TimeTile", "time_fmt not set")
-   end;
+   -- if node_config.timne_fmt ~= nil then
+   --    log("TimeTile", "time_fmt=%s", node_config.time_fmt)
+   -- else
+   --    log("TimeTile", "time_fmt not set")
+   -- end;
    local r, g, b = helper.parse_rgb(config.color or "#333333")
    local clock = clock_for_tz_or_default(json_nullify(config.timezone))
 
