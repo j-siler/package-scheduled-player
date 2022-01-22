@@ -1031,6 +1031,7 @@ end
 local function TimeTile(asset, config, x1, y1, x2, y2)
    local dummyvar="TimeTile says Howdy!"
    local altval={"TimeTile", 1, 2, 1.2}
+   print("TimeTile")
    print(altval)
    print (asset) 
    log("TimeTile", "Entered function TimeTile")
