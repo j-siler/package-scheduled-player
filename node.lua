@@ -1029,7 +1029,7 @@ local function CountdownTile(asset, config, x1, y1, x2, y2)
 end
 
 local function TimeTile(asset, config, x1, y1, x2, y2)
-   print asset
+   print "TImeTime says Hello"
    log("TimeTile", "Entered finction TimeTile")
    -- if node_config.timne_fmt ~= nil then
    --    log("TimeTile", "time_fmt=%s", node_config.time_fmt)
