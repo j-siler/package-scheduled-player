@@ -1029,15 +1029,18 @@ local function CountdownTile(asset, config, x1, y1, x2, y2)
 end
 
 local function dump(o)
-   print "TimeTile: Entering dump(0)"
+   print "TimeTile: Entering dump(0) 1"
    if type(o) == 'table' then
+      print "TimeTile: Entering dump(0) 2"
       local s = '{ '
       for k,v in pairs(o) do
+	 print "TimeTile: Entering dump(0) 3"
 	 if type(k) ~= 'number' then k = '"'..k..'"' end
 	 s = s .. '['..k..'] = ' .. dump(v) .. ','
       end
       return s .. '} '
    else
+      print "TimeTile: Entering dump(0) 4"
       return tostring(o)
    end
 end
