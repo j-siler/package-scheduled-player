@@ -1040,7 +1040,7 @@ local function dump(o)
       end
       return s .. '} '
    else
-      print "TimeTile: Entering dump(0) 4:\" " -- .. tostring(o) .. "\""
+      print "TimeTile: Entering dump(0) 4:\" " .. tostring(o) -- .. "\""
       return tostring(o)
    end
 end
