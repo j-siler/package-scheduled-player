@@ -1028,11 +1028,26 @@ local function CountdownTile(asset, config, x1, y1, x2, y2)
    end
 end
 
+function dump(o)
+   if type(o) == 'table' then
+      local s = '{ '
+      for k,v in pairs(o) do
+         if type(k) ~= 'number' then k = '"'..k..'"' end
+         s = s .. '['..k..'] = ' .. dump(v) .. ','
+      end
+      return s .. '} '
+   else
+      return tostring(o)
+   end
+end
+
 local function TimeTile(asset, config, x1, y1, x2, y2)
    local dummyvar="TimeTile says Howdy!"
    local altval={"TimeTile", 1, 2, 1.2}
+   print(dump(altval)
    print("TimeTile")
    print(config)
+   
    log("TimeTile", "Entered function TimeTile")
    -- if node_config.timne_fmt ~= nil then
    --    log("TimeTile", "time_fmt=%s", node_config.time_fmt)
