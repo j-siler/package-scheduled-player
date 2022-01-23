@@ -1028,18 +1028,18 @@ local function CountdownTile(asset, config, x1, y1, x2, y2)
    end
 end
 
-function dump(o)
-   if type(o) == 'table' then
-      local s = '{ '
-      for k,v in pairs(o) do
-         if type(k) ~= 'number' then k = '"'..k..'"' end
-         s = s .. '['..k..'] = ' .. dump(v) .. ','
-      end
-      return s .. '} '
-   else
-      return tostring(o)
-   end
-end
+-- function dump(o)
+--    if type(o) == 'table' then
+--       local s = '{ '
+--       for k,v in pairs(o) do
+--          if type(k) ~= 'number' then k = '"'..k..'"' end
+--          s = s .. '['..k..'] = ' .. dump(v) .. ','
+--       end
+--       return s .. '} '
+--    else
+--       return tostring(o)
+--    end
+-- end
 
 local function TimeTile(asset, config, x1, y1, x2, y2)
    -- local dummyvar="TimeTile says Howdy!"
@@ -1048,7 +1048,7 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
    -- print("TimeTile")
    -- print(config)
    
-   log("TimeTile", "Entered function TimeTile")
+   -- log("TimeTile", "Entered function TimeTile")
    -- if node_config.timne_fmt ~= nil then
    --    log("TimeTile", "time_fmt=%s", node_config.time_fmt)
    -- else
@@ -2075,9 +2075,9 @@ util.data_mapper{
    ["sys/cec/key"] = scheduler.handle_cec,
 }
 
-util.file_watch("config.json", function(raw)
-    node_config = json.decode(raw)
-end)
+-- util.file_watch("config.json", function(raw)
+--     node_config = json.decode(raw)
+-- end)
 
 function node.render()
    streams.tick()
