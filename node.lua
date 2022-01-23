@@ -1028,21 +1028,19 @@ local function CountdownTile(asset, config, x1, y1, x2, y2)
    end
 end
 
-local function dump(o)
-   print "TimeTile: Entering dump(0) 1"
-   if type(o) == 'table' then
-      print "TimeTile: Entering dump(0) 2"
-      local s = '{ '
-      for k,v in pairs(o) do
-	 print "TimeTile: Entering dump(0) 3"
-	 if type(k) ~= 'number' then k = '"'..k..'"' end
-	 s = s .. '['..k..'] = ' .. dump(v) .. ','
-      end
-      return s .. '} '
-   else
-      print( "TimeTile: Entering dump(0) 4:\" " .. tostring(o) .. "\"")
-      return tostring(o)
-   end
+function tprint (tbl, indent)
+  if not indent then indent = 0 end
+  for k, v in pairs(tbl) do
+    formatting = string.rep("  ", indent) .. k .. ": "
+    if type(v) == "table" then
+      print(formatting)
+      tprint(v, indent+1)
+    elseif type(v) == 'boolean' then
+      print(formatting .. tostring(v))      
+    else
+      print(formatting .. v)
+    end
+  end
 end
 
 local function TimeTile(asset, config, x1, y1, x2, y2)
@@ -1051,7 +1049,7 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
    -- print(dump(altval))
    -- print("TimeTile")
    --print(dump(config))
-   print(dump(node_config))
+   print("TimeTime: " .. tprint(node_config))
    
    log("TimeTile", "Entered function TimeTile")
    -- if node_config.time_fmt ~= nil then
