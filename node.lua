@@ -1042,11 +1042,11 @@ function dump(o)
 end
 
 local function TimeTile(asset, config, x1, y1, x2, y2)
-   local dummyvar="TimeTile says Howdy!"
-   local altval={"TimeTile", 1, 2, 1.2}
-   print(dump(altval))
-   print("TimeTile")
-   print(config)
+   -- local dummyvar="TimeTile says Howdy!"
+   -- local altval={"TimeTile", 1, 2, 1.2}
+   -- print(dump(altval))
+   -- print("TimeTile")
+   -- print(config)
    
    log("TimeTile", "Entered function TimeTile")
    -- if node_config.timne_fmt ~= nil then
