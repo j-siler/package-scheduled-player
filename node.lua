@@ -1050,7 +1050,7 @@ local function TimeTile(asset, config, x1, y1, x2, y2)
    -- local altval={"TimeTile", 1, 2, 1.2}
    -- print(dump(altval))
    -- print("TimeTile")
-   print(dump(config))
+   --print(dump(config))
    print(dump(node_config))
    
    log("TimeTile", "Entered function TimeTile")
