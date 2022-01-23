@@ -1029,17 +1029,16 @@ local function CountdownTile(asset, config, x1, y1, x2, y2)
 end
 
 local function dump(o)
-   return tostring("TimeTile Testing: ")..tostring(o)
---       if type(o) == 'table' then
---          local s = '{ '
---          for k,v in pairs(o) do
---             if type(k) ~= 'number' then k = '"'..k..'"' end
---             s = s .. '['..k..'] = ' .. dump(v) .. ','
---          end
---          return s .. '} '
---       else
---          return tostring(o)
---       end
+   if type(o) == 'table' then
+      local s = '{ '
+      for k,v in pairs(o) do
+	 if type(k) ~= 'number' then k = '"'..k..'"' end
+	 s = s .. '['..k..'] = ' .. dump(v) .. ','
+      end
+      return s .. '} '
+   else
+      return tostring(o)
+   end
 end
 
 local function TimeTile(asset, config, x1, y1, x2, y2)
